@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Lasers/laserBlue01.png" type="Texture" id=2]
+[ext_resource path="res://Cenas/Bullet.gd" type="Script" id=13]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 4.23875
+height = 47.6643
+
+[node name="Area" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="laserBlue01" type="Sprite" parent="."]
+position = Vector2( -0.501343, 0 )
+texture = ExtResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( -0.394451, -0.23667 )
+scale = Vector2( 0.502996, 2.80657 )
+[connection signal="body_entered" from="." to="." method="_on_Area_body_entered"]

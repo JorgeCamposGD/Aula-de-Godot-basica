@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/Nave.gd" type="Script" id=1]
+[ext_resource path="res://Naves aliadas/playerShip1_blue.png" type="Texture" id=2]
+[ext_resource path="res://Fontes/Fonte pronta.tres" type="DynamicFont" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 53.2204
+
+[sub_resource type="Animation" id=2]
+resource_name = "Dano"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite_da_nave:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5, 0.8, 1, 1.3, 1.5, 1.8, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.227451 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.227451 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.227451 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.227451 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Dano da Nave:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5, 0.8, 1, 1.3, 1.5, 1.8, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.227451 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.227451 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.227451 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.227451 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="Nave" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite_da_nave" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Dano da Nave" type="Sprite" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Bullet_pos" type="Position2D" parent="."]
+position = Vector2( 0, -37.5 )
+
+[node name="Canvas" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Contador_de_vidas" type="Label" parent="Canvas"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 3 )
+text = "vidas"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Dano" type="AnimationPlayer" parent="."]
+anims/Dano = SubResource( 2 )
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
