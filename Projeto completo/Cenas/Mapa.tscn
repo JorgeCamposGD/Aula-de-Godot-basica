@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Fundos/blue.png" type="Texture" id=1]
 [ext_resource path="res://Cenas/Nave.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Cenas/Asteroid.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/Mapa_script.gd" type="Script" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Fundo infinito"
@@ -44,15 +45,15 @@ a = Vector2( 1024, 0 )
 b = Vector2( 1024, 600 )
 
 [node name="Mapa" type="Node2D"]
+script = ExtResource( 4 )
 
 [node name="blue" type="Sprite" parent="."]
-position = Vector2( 0, -945.799 )
+position = Vector2( 0, -1024 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 1 )
 centered = false
 
 [node name="blue2" type="Sprite" parent="."]
-position = Vector2( 0, 78.2015 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 1 )
 centered = false
@@ -81,3 +82,7 @@ shape = SubResource( 4 )
 
 [node name="Asteroid" parent="." instance=ExtResource( 3 )]
 position = Vector2( 461.219, 109.692 )
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+[connection signal="timeout" from="Timer" to="." method="_on_AsteroidTime_timeout"]

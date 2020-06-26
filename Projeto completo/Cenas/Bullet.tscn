@@ -8,18 +8,21 @@ radius = 4.23875
 height = 47.6643
 
 [node name="Area" type="Area2D"]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 0
+collision_mask = 6
 script = ExtResource( 13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2( 2, 2 )
 shape = SubResource( 1 )
 
 [node name="laserBlue01" type="Sprite" parent="."]
 position = Vector2( -0.501343, 0 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 position = Vector2( -0.394451, -0.23667 )
 scale = Vector2( 0.502996, 2.80657 )
+[connection signal="area_entered" from="." to="." method="_on_Area_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_Area_body_entered"]

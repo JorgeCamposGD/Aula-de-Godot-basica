@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ufoYellow.png-cc1feaa67aa0f78cb80f16d3508d80f5.stex"
+path="res://.import/ufo2.png-196e27eb9288a0d1b73d1c3dc4932bbe.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://DIsco voador/ufoYellow.png"
-dest_files=[ "res://.import/ufoYellow.png-cc1feaa67aa0f78cb80f16d3508d80f5.stex" ]
+source_file="res://DIsco voador/ufo2.png"
+dest_files=[ "res://.import/ufo2.png-196e27eb9288a0d1b73d1c3dc4932bbe.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
