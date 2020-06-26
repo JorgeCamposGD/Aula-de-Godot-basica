@@ -75,10 +75,43 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Texto" type="Label" parent="Canvas"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -174.0
+margin_top = -148.8
+margin_right = 174.0
+margin_bottom = -100.8
+custom_fonts/font = ExtResource( 3 )
+text = "Fim de jogo."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Canvas"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -156.5
+margin_top = -169.818
+margin_right = 156.5
+margin_bottom = -54.8185
+custom_fonts/font = ExtResource( 3 )
+text = "Reiniciar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
 
 [node name="Dano" type="AnimationPlayer" parent="."]
 anims/Dano = SubResource( 2 )
+[connection signal="pressed" from="Canvas/Button" to="." method="_on_Button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

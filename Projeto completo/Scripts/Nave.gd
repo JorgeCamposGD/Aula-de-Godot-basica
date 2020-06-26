@@ -10,6 +10,8 @@ onready var contador=get_node("Canvas/Contador_de_vidas")
 onready var sprite_dano=get_node("Dano da Nave")
 onready var dano_anim=get_node("Dano")
 onready var placar=get_node("Canvas/Pontos")
+onready var texto=get_node("Canvas/Texto")
+onready var botao=get_node("Canvas/Button")
 var bullet=preload("res://Cenas/Bullet.tscn")
 var speed=500
 var tipo_de_nave=1
@@ -103,6 +105,8 @@ func die():
 
 func game_over():
 	vivo=false
+	texto.show()
+	botao.show()
 	get_parent().end()
 
 
@@ -112,3 +116,7 @@ func _on_Timer_timeout():
 func set_point(p):
 	pontos+=p
 	placar.set_text("Pontos:"+str(pontos))
+
+
+func _on_Button_pressed():
+	get_tree().reload_current_scene()
