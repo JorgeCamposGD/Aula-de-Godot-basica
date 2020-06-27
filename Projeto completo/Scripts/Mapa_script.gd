@@ -4,13 +4,7 @@ var asteroid=preload("res://Cenas/Asteroid.tscn")
 var ufo=preload("res://Cenas/UFO.tscn")
 var nave_inimiga=preload("res://Cenas/Enemy.tscn")
 onready var timer=get_node("Timer")
-func _ready():
-	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 
 func _on_AsteroidTime_timeout():
@@ -20,9 +14,7 @@ func _on_AsteroidTime_timeout():
 	match chance:
 		0,1,2,3:
 			#ast=asteroid.instance()
-			ast=nave_inimiga.instance()
-			
-			
+			ast=asteroid.instance()
 		4,5,6,7:
 			ast=ufo.instance()
 		8,9,10:
